@@ -26,7 +26,7 @@ def main():
         """
         <style>
         .reportview-container {
-            background: url("https://example.com/image.jpg");
+            background: url("C:\Users\subha\resume_screening_app\image.jpg");
             background-size: cover;
         }
         </style>
