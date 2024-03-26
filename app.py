@@ -19,6 +19,7 @@ def clean_resume(resume_text):
     clean_text = re.sub(r'[^\x00-\x7f]', r' ', clean_text)
     clean_text = re.sub('\s+', ' ', clean_text)
     return clean_text
+
 # web app
 def main():
     # Add CSS for background image
@@ -26,11 +27,11 @@ def main():
         """
         <style>
         .reportview-container {
-            background: url("C:\Users\subha\resume_screening_app\image.jpg");
+            background: url("C:\\Users\\subha\\resume_screening_app\\image.jpg");
             background-size: cover;
         }
         </style>
-        """
+        """,
         unsafe_allow_html=True
     )
 
@@ -51,11 +52,11 @@ def main():
         box_color = "black"
         styled_prediction = f'<div style="background-color: {box_color}; padding: 10px; border-radius: 5px;">{prediction_id}</div>'
         st.markdown(styled_prediction, unsafe_allow_html=True)
-        
 
 # python main
 if __name__ == "__main__":
     main()
+
 
 
 
