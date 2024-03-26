@@ -21,6 +21,19 @@ def clean_resume(resume_text):
     return clean_text
 # web app
 def main():
+    # Add CSS for background image
+    st.markdown(
+        """
+        <style>
+        .reportview-container {
+            background: url("https://example.com/image.jpg");
+            background-size: cover;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     st.title("Resume Screening App")
     uploaded_file = st.file_uploader('Upload Resume', type=['txt','pdf'])
 
@@ -39,10 +52,6 @@ def main():
         styled_prediction = f'<div style="background-color: {box_color}; padding: 10px; border-radius: 5px;">{prediction_id}</div>'
         st.markdown(styled_prediction, unsafe_allow_html=True)
         
-
-        if prediction_id != prediction_id:
-            st.write('unknown')
-
 
 # python main
 if __name__ == "__main__":
