@@ -35,7 +35,7 @@ def main():
         cleaned_resume = clean_resume(resume_text)
         input_features = tfidfd.transform([cleaned_resume])
         prediction_id = clf.predict(input_features)[0]
-        box_color = "lightblue"
+        box_color = "black"
         styled_prediction = f'<div style="background-color: {box_color}; padding: 10px; border-radius: 5px;">{prediction_id}</div>'
         st.markdown(styled_prediction, unsafe_allow_html=True)
         
