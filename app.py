@@ -8,7 +8,7 @@ nltk.download('stopwords')
 
 #loading models
 clf = pickle.load(open('clf.pkl','rb'))
-tfidfd = pickle.load(open('tfidf.pkl','rb'))
+tfidf = pickle.load(open('tfidf.pkl','rb'))
 
 def clean_resume(resume_text):
     clean_text = re.sub('http\S+\s*', ' ', resume_text)
@@ -22,18 +22,17 @@ def clean_resume(resume_text):
 
 # web app
 def main():
-    # Add CSS for background image
     st.markdown(
-        """
-        <style>
-        .reportview-container {
-            background: url("image.jpg");
-            background-size: cover;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    """
+    <style>
+    .reportview-container {
+        background: url("image.jpg");
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
     st.title("Resume Screening App")
     uploaded_file = st.file_uploader('Upload Resume', type=['txt','pdf'])
@@ -47,7 +46,7 @@ def main():
             resume_text = resume_bytes.decode('latin-1')
 
         cleaned_resume = clean_resume(resume_text)
-        input_features = tfidfd.transform([cleaned_resume])
+        input_features = tfidf.transform([cleaned_resume])
         prediction_id = clf.predict(input_features)[0]
         box_color = "black"
         styled_prediction = f'<div style="background-color: {box_color}; padding: 10px; border-radius: 5px;">{prediction_id}</div>'
