@@ -37,7 +37,7 @@ def main():
         prediction_id = clf.predict(input_features)[0]
         st.write(prediction_id)
 
-        # Map category ID to category name
+       ''' # Map category ID to category name
         category_mapping = {
             15: "Java Developer",
             23: "Testing",
@@ -68,10 +68,15 @@ def main():
 
         category_name = category_mapping.get(prediction_id, "Unknown")
 
-        st.write("Predicted Category:", category_name)
+        st.write("Predicted Category:", category_name)'''
 
 
 
 # python main
 if __name__ == "__main__":
     main()
+
+
+
+
+
