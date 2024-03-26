@@ -30,7 +30,7 @@ def main():
             background-size: cover;
         }
         </style>
-        """,
+        """
         unsafe_allow_html=True
     )
 
